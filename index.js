@@ -224,5 +224,9 @@ const pushAllReports = async () => {
 pushAllReports()
 	.then(() => {
 		console.log('Report successfully pushed to Bitbucket.')
+		if (highestLevelIndex < ORDERED_LEVELS.indexOf(auditLevel)) {
 		process.exit(0)
+		} else {
+			process.exit(1)
+		}
 	})
